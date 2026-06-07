@@ -93,11 +93,7 @@ frida --version
 python -c "import frida; print(frida.__version__)"
 ```
 
-Preuve attendue :
-
-```markdown
 ![Versions Python, pip et Frida](assets/screenshots/01-python-pip-frida-version.png)
-```
 
 ## 2. Verification ADB
 
@@ -115,11 +111,7 @@ List of devices attached
 <device_id>    device
 ```
 
-Preuve attendue :
-
-```markdown
 ![ADB devices](assets/screenshots/02-adb-devices.png)
-```
 
 ## 3. Identification de l'architecture CPU
 
@@ -135,11 +127,7 @@ Exemples possibles :
 - `armeabi-v7a`
 - `x86_64`
 
-Preuve attendue :
-
-```markdown
 ![Architecture Android](assets/screenshots/03-device-architecture.png)
-```
 
 ## 4. Installation et lancement de frida-server
 
@@ -169,12 +157,9 @@ adb forward tcp:27042 tcp:27042
 adb forward tcp:27043 tcp:27043
 ```
 
-Preuves attendues :
-
-```markdown
 ![Push frida-server](assets/screenshots/04-frida-server-push.png)
+
 ![frida-server running](assets/screenshots/05-frida-server-running.png)
-```
 
 ## 5. Validation de Frida
 
@@ -186,11 +171,7 @@ frida-ps -Uai
 
 Le package de l'application cible doit apparaitre dans la liste.
 
-Preuve attendue :
-
-```markdown
 ![Frida process list](assets/screenshots/06-frida-ps-apps.png)
-```
 
 ## 6. Injection Frida simple
 
@@ -208,21 +189,13 @@ Resultat attendu :
 [+] Script injecte: Java.perform OK
 ```
 
-Preuve attendue :
-
-```markdown
-![Injection hello.js](assets/screenshots/07-hello-js-injection.png)
-```
+Capture a ajouter : `assets/screenshots/07-hello-js-injection.png`
 
 ## 7. Etat initial : detection root active
 
 Avant d'appliquer le bypass, lancer l'application normalement et observer les controles root.
 
-Preuve attendue :
-
-```markdown
 ![Root detection before bypass](assets/screenshots/08-root-detection-before.png)
-```
 
 Observation a documenter :
 
@@ -252,11 +225,7 @@ Resultat attendu :
 [+] Java root bypass installed
 ```
 
-Preuve attendue :
-
-```markdown
-![Bypass Java](assets/screenshots/09-java-bypass-script.png)
-```
+Capture a ajouter : `assets/screenshots/09-java-bypass-script.png`
 
 ## 9. Bypass natif avec Frida
 
@@ -270,11 +239,7 @@ Execution combinee Java + natif :
 frida -U -f <package> -l scripts/bypass_root_basic.js -l scripts/bypass_native.js --no-pause
 ```
 
-Preuve attendue :
-
-```markdown
-![Bypass natif](assets/screenshots/10-native-bypass-script.png)
-```
+Capture a ajouter : `assets/screenshots/10-native-bypass-script.png`
 
 Pour investiguer les appels natifs :
 
@@ -308,21 +273,13 @@ Alternative au lancement :
 objection -g <package> explore --startup-command "android root disable"
 ```
 
-Preuve attendue :
-
-```markdown
 ![Objection root disable](assets/screenshots/11-objection-root-disable.png)
-```
 
 ## 11. Validation finale
 
 Apres injection des hooks ou utilisation d'Objection, relancer ou rafraichir l'application puis verifier que la detection root n'est plus active.
 
-Preuve attendue :
-
-```markdown
 ![Root detection after bypass](assets/screenshots/12-root-detection-after.png)
-```
 
 Resultat attendu :
 
